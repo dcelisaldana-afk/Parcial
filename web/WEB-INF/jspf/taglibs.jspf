@@ -1,0 +1,15 @@
+<%--
+    taglibs.jspf - Prologo AUTOMATICO de todas las paginas .jsp.
+    web.xml lo registra con <include-prelude>, asi que NO hay que repetirlo
+    en cada pagina. Aqui se declaran las 4 bibliotecas JSTL y las etiquetas
+    propias del proyecto (carpeta WEB-INF/tags).
+
+    Tomcat 9 (javax)  -> URIs http://java.sun.com/jsp/jstl/...   (este archivo)
+    Tomcat 10/11      -> ver WEB-INF/taglibs_tomcat10-11.jspf.txt (jakarta.tags.*)
+--%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="t"   tagdir="/WEB-INF/tags" %>

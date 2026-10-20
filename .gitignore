@@ -1,0 +1,27 @@
+# Librerias (se descargan con descargar_librerias.sh / .bat)
+web/WEB-INF/lib/*.jar
+
+# Compilados y temporales de Tomcat
+work/
+temp/
+logs/
+*.class
+*.log
+
+# IDE
+.vscode/
+.idea/
+.settings/
+.classpath
+.project
+*.iml
+.metadata/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python (carpeta pruebas/)
+__pycache__/
+*.pyc

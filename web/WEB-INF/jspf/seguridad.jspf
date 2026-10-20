@@ -1,0 +1,24 @@
+<%--
+    seguridad.jspf - Control de acceso por sesion y por rol (solo JSTL).
+    Uso: antes del include, la pagina declara el rol (o roles separados por
+    coma) que puede entrar:
+        <c:set var="rolRequerido" value="COMITE,ADMINISTRADOR"/>
+        <%@ include file="/WEB-INF/jspf/seguridad.jspf" %>
+    - Sin sesion            -> redirige a login.jsp
+    - Sesion pero otro rol  -> redirige a acceso_denegado.jsp
+    <c:redirect> termina la pagina en ese punto: nada de lo que sigue se ejecuta.
+--%>
+<c:if test="${empty sessionScope.idUsuario}">
+    <c:redirect url="/login.jsp"><c:param name="err" value="Inicie sesión para continuar."/></c:redirect>
+</c:if>
+<c:if test="${not empty rolRequerido}">
+    <c:set var="rolAutorizado" value="false"/>
+    <c:forTokens items="${rolRequerido}" delims="," var="rolPedido">
+        <c:if test="${fn:contains(sessionScope.roles, rolPedido)}">
+            <c:set var="rolAutorizado" value="true"/>
+        </c:if>
+    </c:forTokens>
+    <c:if test="${not rolAutorizado}">
+        <c:redirect url="/acceso_denegado.jsp"/>
+    </c:if>
+</c:if>

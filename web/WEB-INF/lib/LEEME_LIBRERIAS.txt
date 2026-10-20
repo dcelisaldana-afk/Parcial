@@ -1,0 +1,12 @@
+Esta carpeta debe contener 3 archivos .jar (NO se suben a GitHub, estan en .gitignore):
+
+  taglibs-standard-spec-1.2.5.jar    JSTL (especificacion)
+  taglibs-standard-impl-1.2.5.jar    JSTL (implementacion)
+  mysql-connector-j-8.3.0.jar        driver JDBC de MySQL
+
+Forma facil: ejecute en la raiz del proyecto
+  descargar_librerias.bat   (Windows)    o    ./descargar_librerias.sh   (Mac/Linux)
+y los descarga desde Maven Central a esta carpeta.
+
+Sin JSTL veras:  The absolute uri: http://java.sun.com/jsp/jstl/core cannot be resolved
+Sin el driver:   ClassNotFoundException: com.mysql.cj.jdbc.Driver

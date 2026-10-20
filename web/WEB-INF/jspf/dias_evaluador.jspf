@@ -1,0 +1,9 @@
+<%--
+    dias_evaluador.jspf - Define diasEval: dias CALENDARIO que equivalen a 5 dias
+    habiles contados desde hoy (sabado=6, domingo=5, lunes a viernes=7).
+    Se usa como INTERVAL ? DAY para fijar la fecha limite del evaluador.
+--%>
+<sql:query var="rsDiasEval" dataSource="${ds}">
+    SELECT CASE DAYOFWEEK(NOW()) WHEN 7 THEN 6 WHEN 1 THEN 5 ELSE 7 END AS dias
+</sql:query>
+<c:set var="diasEval" value="${rsDiasEval.rows[0].dias + 0}"/>

@@ -1,0 +1,16 @@
+<%--
+    pagina.jspf - Calcula la paginacion de un listado (solo JSTL).
+    Define: pagina (actual, >= 1), porPagina (10) y desde (desplazamiento).
+    Un valor no numerico en ?pagina= se ignora y se usa la pagina 1.
+    OJO: los numeros se escriben ${10} (no "10") para que sean numeros y no
+    texto: LIMIT ?,? exige numeros.
+--%>
+<c:set var="porPagina" value="${10}"/>
+<c:set var="pagina" value="${1}"/>
+<c:catch var="ePagina">
+    <fmt:parseNumber var="paginaLeida" integerOnly="true" parseLocale="en_US" value="${param.pagina}"/>
+</c:catch>
+<c:if test="${empty ePagina and not empty paginaLeida and paginaLeida > 0}">
+    <c:set var="pagina" value="${paginaLeida}"/>
+</c:if>
+<c:set var="desde" value="${(pagina - 1) * porPagina}"/>

@@ -1,0 +1,8 @@
+<%-- Para Tomcat 10 / 11: reemplace el contenido de WEB-INF/jspf/taglibs.jspf por este
+     y cambie las librerias de WEB-INF/lib por las de Jakarta (ver README). --%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c"   uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn"  uri="jakarta.tags.functions" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib prefix="sql" uri="jakarta.tags.sql" %>
+<%@ taglib prefix="t"   tagdir="/WEB-INF/tags" %>

@@ -1,0 +1,15 @@
+/* estilos.css - Ajustes propios sobre Bootstrap 5 */
+:root { --uts-azul:#1b2a4a; --uts-dorado:#b7791f; }
+.barra-uts { background: var(--uts-azul); }
+.hero { background: linear-gradient(135deg, var(--uts-azul), #2c4a7c); color:#fff; border-radius:.75rem; }
+.card-idea:hover { box-shadow:0 .5rem 1rem rgba(0,0,0,.12); transform:translateY(-2px); transition:.15s; }
+.tabla-compacta td, .tabla-compacta th { font-size:.9rem; vertical-align:middle; }
+.barra-fases .paso { flex:1 1 130px; padding:.5rem .6rem; border-radius:.5rem; font-size:.8rem;
+                     border:1px solid #cfd6e4; background:#fff; color:#6b7280; }
+.barra-fases .paso .num { display:inline-block; width:1.4rem; height:1.4rem; line-height:1.4rem;
+                          text-align:center; border-radius:50%; background:#cfd6e4; color:#fff; font-weight:700; margin-right:.25rem; }
+.barra-fases .paso-hecho { background:#e7f5ec; border-color:#a6d5b6; color:#1e6b3a; }
+.barra-fases .paso-hecho .num { background:#2e9e5b; }
+.barra-fases .paso-actual { background:#fff4dc; border-color:var(--uts-dorado); color:#7a4f0d; font-weight:600; }
+.barra-fases .paso-actual .num { background:var(--uts-dorado); }
+.url-doc { word-break:break-all; }

@@ -1,0 +1,24 @@
+<%--
+    pie.jspf - Cierre de la pagina. Enlaza el reglamento de grado y el
+    calendario academico vigente (requisito RF51). El enlace al reglamento
+    se lee de la tabla parametro_sistema, asi lo cambia el administrador.
+--%>
+<sql:query var="rsPie" dataSource="${ds}">
+    SELECT valor FROM parametro_sistema WHERE clave = 'url_reglamento'
+</sql:query>
+</main>
+<footer class="text-center text-muted py-3 border-top bg-white">
+  <small>
+    Trabajos de Grado UTS &middot; Proyecto acad&eacute;mico &middot; Programaci&oacute;n Java (JSP + JSTL)
+    <c:if test="${rsPie.rowCount > 0}">
+      &middot; <a href="<c:out value='${rsPie.rows[0].valor}'/>" target="_blank" rel="noopener">Reglamento de grado</a>
+    </c:if>
+    <c:if test="${not empty sessionScope.idUsuario}">
+      &middot; <a href="${ctx}/calendario.jsp">Calendario acad&eacute;mico</a>
+    </c:if>
+  </small>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="${ctx}/js/validaciones.js"></script>
+</body>
+</html>

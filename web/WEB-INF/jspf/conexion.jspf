@@ -1,0 +1,26 @@
+<%--
+    conexion.jspf - Conexion centralizada a la base de datos (solo JSTL).
+    Se incluye de forma ESTATICA al inicio de cada pagina:
+        <%@ include file="/WEB-INF/jspf/conexion.jspf" %>
+    No hay Java: la fuente de datos se crea con <sql:setDataSource> y queda
+    guardada en el ambito de aplicacion (variable "ds"), asi que se crea una
+    sola vez y todas las paginas la reutilizan con dataSource="${ds}".
+
+    Al estar dentro de /WEB-INF, nadie puede abrir este archivo desde el
+    navegador: la cadena de conexion queda protegida.
+--%>
+<%-- Todo lo que llega del navegador se lee como UTF-8 (tildes y enies) --%>
+<fmt:requestEncoding value="UTF-8"/>
+<fmt:setLocale value="es_CO"/>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+
+<%-- ============ PARAMETROS DE CONEXION ============
+     Ajustados para MySQL de XAMPP (root sin clave, puerto 3306).
+     Cambie SOLO driver, url, user y password si usa otro servidor. --%>
+<c:if test="${empty applicationScope.ds}">
+    <sql:setDataSource var="ds" scope="application"
+        driver="com.mysql.cj.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/trabajos_grado_uts?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Bogota&characterEncoding=UTF-8"
+        user="root"
+        password=""/>
+</c:if>
